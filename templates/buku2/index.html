@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perpustakaan</title>
+    </head>
+
+    <body>
+        
+	{% if user.is_authenticated %}
+	<h1>Rango says... hello {{ user.username }}!</h1>
+	<a href="/buku2/restricted/">Restricted Page</a><br />
+	<a href="/buku2/logout/">Logout</a><br />
+	{% else %}
+	<h1>Rango says... hello world!</h1>
+	<a href="/buku2/register/">Register Here</a><br />
+	<a href="/buku2/login/">Login</a><br />
+	{% endif %}
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li><a href="/buku2/category/{{ category.name }}">{{category.name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+
+        <a href="/buku2/about/">About</a>
+	<br><a href="/buku2/add_category/">Add a New Category</a><br />
+        <a href="/buku2/add_book/">Add a New Book</a><br />
+	<br><a href="/buku2/register/">Register Here</a><br/>
+	<a href="/buku2/login/">Login</a>
+
+    </body>
+</html>

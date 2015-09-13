@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Perpustakaan</title>
+    </head>
+
+    <body>
+        <h1>{{ book_title }}</h1>
+        {% if book %}
+	    <ul>
+	    	<li> Category : {{book.category}}</li>
+            	<li> Title : {{book.title}}</li>
+	    	<li> Sinopsis : {{book.sinopsis}}</li>
+	    	<li> Pengarang : {{book.pengarang}}</li>
+		<li> Gambar : <img src="{{book.picture.url}}"></li>
+        {% else %}
+            The specified book {{ book_title }} does not exist!
+        {% endif %}
+    </body>
+</html>
+
